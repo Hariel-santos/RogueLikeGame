@@ -29,7 +29,7 @@ def round(jogador1, jogador2):
     i=0
     atq1 = 0
     atq2 = 0
-    while i < 4:
+    while jogador1["vida"] > 0 and jogador2["vida"] > 0:
         if jogador1["velocidade"] == atq1:
             escJog = input("É sua vez de atacar! Deseja atacar, defender ou usar habilidade (1, 2 ou 3): ")
             if escJog == "1":
@@ -46,6 +46,8 @@ def round(jogador1, jogador2):
                 else:
                     print("Você não tem usos de habilidade restantes! e demorou muito tempo pensando...")
             atq1 = 0
+        if jogador2["vida"] <= 0:
+            break
         if jogador2["velocidade"] == atq2:
             print("inimigo ataca!")
             atacar(jogador2, jogador1)
